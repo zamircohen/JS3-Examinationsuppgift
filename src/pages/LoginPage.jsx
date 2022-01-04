@@ -69,22 +69,22 @@ export default function LoginPage() {
             <Container col={3}>
                 <p>myCUSTOMERS</p>
                 <Content>
-            <h2>LOGIN</h2>
-
+            <h2>Logga in eller skapa ett nytt konto</h2>
+            <br />
             <form onSubmit={handleOnSubmit}>
-                <label>E-mail</label><br />
+                <label>E-post</label><br />
                 <input type="text" value={email} placeholder="Email" onChange={e => setEmail(e.target.value)} />
                 <br />
                 <br />
-                <label>Password</label><br />
+                <label>Lösenord</label><br />
                 <input type="password" value={password} placeholder="Password" onChange={e => setPassword(e.target.value)} />
                 <br />
                 <br />
-                <LoginButton login type="submit">Login</LoginButton>
+                <LoginButton login type="submit">Logga in</LoginButton>
                 <br />
             </form>
             
-            OR CREATE A NEW USER <a href="../user/create">HERE</a>
+            Har du inget konto? Skapa ett nytt <a href="../user/create">här</a>
             <br />
             </Content>
             </Container>

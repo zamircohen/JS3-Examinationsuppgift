@@ -84,7 +84,7 @@ export default function CustomerCreate(props) {
     return (
         <div>
 
-            <h1>CREATE NEW CUSTOMER</h1>
+            <h1>Skapa ny kund</h1>
             
             <form onSubmit={handleOnSubmit}>
             {renderInput("text", name, "Namn", setName)}
@@ -95,7 +95,7 @@ export default function CustomerCreate(props) {
             {renderInput("url", website, "Webbplats", setWebsite)}
             {renderInput("email", email, "E-post", setEmail)}
             {renderInput("tel", phoneNumber, "Telefonnummer", setPhoneNumber)}
-            <Button type="submit">Create</Button>
+            <Button type="submit">Skapa</Button>
             </form>
 {/* 
             {response && (

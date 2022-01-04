@@ -1,5 +1,8 @@
 import React, {useContext, useEffect} from 'react'
+import { Link } from 'react-router-dom'
 import { UserContext } from '../App'
+import Card from './Card'
+import MyButton from './MyButton'
 
 export default function UserInformation() {
 
@@ -25,13 +28,16 @@ export default function UserInformation() {
 
     return (
         <div>
+            <Card user>
             {myData && (
             <>
-                LOGGED AS
-               <p><b>Name:</b> {myData.firstName} {myData.lastName}</p>
-               <p><b>Email:</b> {myData.email}</p>
+                Inloggad som
+                <p><b>Namn:</b> {myData.firstName} {myData.lastName}</p>
+                <p><b>E-post:</b> {myData.email}</p>
+                <Link to={`/login`}><MyButton>Byt konto</MyButton></Link>
             </>
             )}
+            </Card>
         </div>
     )
 }

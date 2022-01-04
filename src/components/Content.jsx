@@ -12,10 +12,3 @@ const Content = styled.div`
 
 export default Content;
 
-// export default function Content() {
-//     return (
-//         <div>
-            
-//         </div>
-//     )
-// }

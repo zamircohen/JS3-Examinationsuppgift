@@ -3,10 +3,10 @@ import {Link} from "react-router-dom"
 import { useNavigate } from 'react-router-dom'
 import { UserContext } from '../App'
 import Create from '../components/Create'
-import Card from './Card'
-import Columns from './Columns'
+import CompanyCard from './Card'
+import Container from './Container'
+import Content from './Content'
 import DeleteButton from './MyButton' 
-
 
 
 export default function CustomerList() {
@@ -56,28 +56,28 @@ export default function CustomerList() {
 
             
 
-            <Columns col={3} mar={"left"}>       
+            <Container col={3}>    
+            <Content>
             <Create onSuccess={fetchData} />
-            </Columns>
-
-            <Columns col={3} mar={"auto"}>       
-              <h1>YOUR CUSTOMERS</h1>
-
+                      
+            <br />
+            <br />
+              <h1>Dina kunder</h1>
 
               {customerList && customerList.map((customer) => {
                 return (
                     <>
             
-                    <Card>
+                    <CompanyCard>
                      <h2>{customer.name}</h2>
                      <ul>
-                         <li>Phone number: {customer.phoneNumber}</li>
-                         <li>Email: {customer.email}</li>
-                         <li>VAT number: {customer.vatNr}</li>
+                         <li>Tel.nr: {customer.phoneNumber}</li>
+                         <li>E-post: {customer.email}</li>
+                         <li>VAT-nr: {customer.vatNr}</li>
                          <li><Link to={`/customer/${customer.id}`}>Mer info</Link></li>
                      </ul>
-                        <DeleteButton delete onClick={(e) => handleOnDelete(customer.id)}>DELETE CUSTOMER</DeleteButton>
-                    </Card>
+                        <DeleteButton delete onClick={(e) => handleOnDelete(customer.id)}>Radera kund</DeleteButton>
+                    </CompanyCard>
              
                     </>
                 
@@ -85,7 +85,8 @@ export default function CustomerList() {
                     
             })}
 
-            </Columns>
+            </Content>
+            </Container>  
 
         </div> 
 

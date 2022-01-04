@@ -54,16 +54,17 @@ export default function Detail() {
             {customerDetail ? (
                 <>
                     <br />
-                    <h2>CUSTOMER DETAILS</h2>
-                    <p><b>Name:</b> {customerDetail.name}</p>
-                    <p><b>Email:</b> {customerDetail.email}</p>
-                    <p><b>Phone Number:</b> {customerDetail.phoneNumber}</p>        
-                    <p><b>Organisation Number:</b> {customerDetail.organisationNr}</p>
-                    <p><b>VAT Number:</b> {customerDetail.vatNr}</p>
-                    <p><b>Reference Number:</b> {customerDetail.reference}</p>
-                    <p><b>Payment Term:</b> {customerDetail.paymentTerm} days</p>
-                    <p><b>Website:</b> {customerDetail.website}</p>
-                    <Button onClick={handleOnClick}>BACK TO LIST</Button>
+                    <h2>KUND DETALJER</h2>
+                    <br />
+                    <p><b>Namn:</b> {customerDetail.name}</p>
+                    <p><b>E-post:</b> {customerDetail.email}</p>
+                    <p><b>Telefonnummer:</b> {customerDetail.phoneNumber}</p>        
+                    <p><b>Organisationsnummer:</b> {customerDetail.organisationNr}</p>
+                    <p><b>VAT-nummer:</b> {customerDetail.vatNr}</p>
+                    <p><b>Referensnummer:</b> {customerDetail.reference}</p>
+                    <p><b>Betalningsvillkor:</b> {customerDetail.paymentTerm} dagar</p>
+                    <p><b>Webplats:</b> {customerDetail.website}</p>
+                    <Button onClick={handleOnClick}>Tillbaka till listan</Button>
                     <br />
                     <Change onSuccess={fetchData} />
                 </>

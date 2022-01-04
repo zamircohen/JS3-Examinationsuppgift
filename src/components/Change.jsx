@@ -94,7 +94,7 @@ export default function Change(props) {
     return (
         <div>
 
-            <h1>CHANGE CUSTOMER DATA</h1>
+            <h1>Ändra kund information</h1>
             
             <form onSubmit={handleOnSubmit}>
             {renderInput("text", name, "Namn", setName)}
@@ -105,12 +105,12 @@ export default function Change(props) {
             {renderInput("url", website, "Webbplats", setWebsite)}
             {renderInput("email", email, "E-post", setEmail)}
             {renderInput("tel", phoneNumber, "Telefonnummer", setPhoneNumber)}
-            <Button type="submit">EDIT USER</Button>
+            <Button type="submit">Ändra</Button>
             </form>
 
             {response && (
                 <>
-                <p>Customer information changed!</p>
+                <p>Kund information har ändrats!</p>
                 </>
             )} 
             

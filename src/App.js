@@ -4,7 +4,6 @@ import CustomerCreatePage from "./pages/CustomerCreatePage";
 import CustomerDetailPage from "./pages/CustomerDetailPage";
 import HomePage from "./pages/HomePage";
 import LoginPage from "./pages/LoginPage";
-import UserActivatePage from "./pages/UserActivatePage";
 import UserCreatePage from "./pages/UserCreatePage";
 
 
@@ -32,7 +31,7 @@ function App() {
           <Route path="/customer/:id" element={<CustomerDetailPage />}></Route>
           <Route path="/create" element={<CustomerCreatePage />}></Route>
           <Route path="/user/create" element={<UserCreatePage />}></Route>
-          <Route path="/user/activate" element={<UserActivatePage />}></Route>
+          {/* <Route path="/user/activate" element={<UserActivatePage />}></Route> */}
         </Routes>
 
     </div>
