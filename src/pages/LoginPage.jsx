@@ -11,7 +11,8 @@ export default function LoginPage() {
     const [password, setPassword] = useState("")
   
     const navigate = useNavigate()
-
+    const navigate2 = useNavigate()
+    const location = useLocation()
 
     function handleOnSubmit(e) {
         e.preventDefault()
@@ -31,13 +32,6 @@ export default function LoginPage() {
             navigate('/home')
         })
     }
-
-
-
-
-
-    const navigate2 = useNavigate()
-    const location = useLocation()
 
 
     useEffect(() => {
@@ -62,31 +56,30 @@ export default function LoginPage() {
     },[])
 
 
-
     return (
         <div>
             
             <Container col={3}>
                 <p>myCUSTOMERS</p>
                 <Content>
-            <h2>Logga in eller skapa ett nytt konto</h2>
-            <br />
-            <form onSubmit={handleOnSubmit}>
-                <label>E-post</label><br />
-                <input type="text" value={email} placeholder="Email" onChange={e => setEmail(e.target.value)} />
-                <br />
-                <br />
-                <label>Lösenord</label><br />
-                <input type="password" value={password} placeholder="Password" onChange={e => setPassword(e.target.value)} />
-                <br />
-                <br />
-                <LoginButton login type="submit">Logga in</LoginButton>
-                <br />
-            </form>
-            
-            Har du inget konto? Skapa ett nytt <a href="../user/create">här</a>
-            <br />
-            </Content>
+                    <h2>Logga in eller skapa ett nytt konto</h2>
+                    <br />
+                    <form onSubmit={handleOnSubmit}>
+                        <label>E-post</label><br />
+                        <input type="text" value={email} placeholder="Email" onChange={e => setEmail(e.target.value)} />
+                        <br />
+                        <br />
+                        <label>Lösenord</label><br />
+                        <input type="password" value={password} placeholder="Password" onChange={e => setPassword(e.target.value)} />
+                        <br />
+                        <br />
+                        <LoginButton login type="submit">Logga in</LoginButton>
+                        <br />
+                    </form>
+                    
+                    Har du inget konto? Skapa ett nytt <a href="../user/create">här</a>
+                    <br />
+                </Content>
             </Container>
         </div>
     )

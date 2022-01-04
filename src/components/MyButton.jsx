@@ -28,15 +28,12 @@ const Button = styled.button`
     }
 `
 
-
 const LoginButton = styled(Button)`
     border-radius: 2px;
     width: 60%;
     display: block
     background-color:
 `
-
-
 
 export default function MyButton(props) {
     return (

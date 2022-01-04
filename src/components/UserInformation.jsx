@@ -6,10 +6,8 @@ import MyButton from './MyButton'
 
 export default function UserInformation() {
 
-   
     const {myData, setMyData} = useContext(UserContext)
 
-  
     useEffect(() => {
         const url = "https://frebi.willandskill.eu/api/v1/me"
         const token = localStorage.getItem("webb21-exuppgift")
@@ -29,14 +27,14 @@ export default function UserInformation() {
     return (
         <div>
             <Card user>
-            {myData && (
-            <>
-                Inloggad som
-                <p><b>Namn:</b> {myData.firstName} {myData.lastName}</p>
-                <p><b>E-post:</b> {myData.email}</p>
-                <Link to={`/login`}><MyButton>Byt konto</MyButton></Link>
-            </>
-            )}
+                {myData && (
+                <>
+                    Inloggad som
+                    <p><b>Namn:</b> {myData.firstName} {myData.lastName}</p>
+                    <p><b>E-post:</b> {myData.email}</p>
+                    <Link to={`/login`}><MyButton>Byt konto</MyButton></Link>
+                </>
+                )}
             </Card>
         </div>
     )

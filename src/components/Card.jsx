@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 const CompanyCard = styled.div`
     // width: 300px;
-    // height: 250px;
+    // height: 300px;
     border: 3px solid black;
     padding: 10px;
     margin: 10px;
@@ -12,29 +12,22 @@ const CompanyCard = styled.div`
 
 const UserCard = styled(CompanyCard)`
     top: 0;
-    position: relative;
+    position: fixed;
     background-color: lightgray;
+    overflow: auto;
     z-index: 100;
-    position: -webkit-sticky;
-
 `
-
 
 export default function Card(props) {
     return (
      
         <div>
-        <>
-        {props.user ? 
-            <UserCard {...props}>{props.children}</UserCard>
-            : <CompanyCard {...props}>{props.children}</CompanyCard>
-        }
-        </>
-    </div>
-
-
-
-        // <CompanyCard>{props.children}</CompanyCard>
-     
+            <>
+                {props.user ? 
+                    <UserCard {...props}>{props.children}</UserCard>
+                    : <CompanyCard {...props}>{props.children}</CompanyCard>
+                }
+            </>
+        </div>
     )
 }

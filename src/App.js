@@ -6,22 +6,16 @@ import HomePage from "./pages/HomePage";
 import LoginPage from "./pages/LoginPage";
 import UserCreatePage from "./pages/UserCreatePage";
 
-
-
 const UserContext = createContext({})
-
 
 function App() {
 
-  
   const [myData, setMyData] = useState(null)
   const [customerList, setCustomerList] = useState(null)  
 
   return (
-    
   
     <UserContext.Provider value = {{myData, setMyData, customerList, setCustomerList}}>
-
     
     <div>
       
@@ -43,5 +37,4 @@ function App() {
 
 
 export {UserContext}
-
 export default App;

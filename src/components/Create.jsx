@@ -12,9 +12,7 @@ export default function CustomerCreate(props) {
     const [email, setEmail] = useState("")
     const [phoneNumber, setPhoneNumber] = useState("")
 
-    // const [response, setResponse] = useState(null)
-
-
+    
     function renderInput(type, value, placeholder, setValue) {
         return (
             <input
@@ -76,33 +74,24 @@ export default function CustomerCreate(props) {
         setWebsite("")
         setEmail("")
         setPhoneNumber("")
-        // .then(data => setResponse(data))
     }
-
 
 
     return (
         <div>
-
             <h1>Skapa ny kund</h1>
             
             <form onSubmit={handleOnSubmit}>
-            {renderInput("text", name, "Namn", setName)}
-            {renderInput("text", organisationNr, "Organisationsnummer", setOrganisationNr)}
-            {renderVatInput("text", vatNr, "SE[0-9]{10}", "VAT-nummer", setVatNr)}
-            {renderInput("text", reference, "Referens nummer", setReference)}
-            {renderInput("text", paymentTerm, "Betalningsvillkor i dagar", setPaymentTerm)}
-            {renderInput("url", website, "Webbplats", setWebsite)}
-            {renderInput("email", email, "E-post", setEmail)}
-            {renderInput("tel", phoneNumber, "Telefonnummer", setPhoneNumber)}
-            <Button type="submit">Skapa</Button>
+                {renderInput("text", name, "Namn", setName)}
+                {renderInput("text", organisationNr, "Organisationsnummer", setOrganisationNr)}
+                {renderVatInput("text", vatNr, "SE[0-9]{10}", "VAT-nummer", setVatNr)}
+                {renderInput("text", reference, "Referens nummer", setReference)}
+                {renderInput("text", paymentTerm, "Betalningsvillkor i dagar", setPaymentTerm)}
+                {renderInput("url", website, "Webbplats", setWebsite)}
+                {renderInput("email", email, "E-post", setEmail)}
+                {renderInput("tel", phoneNumber, "Telefonnummer", setPhoneNumber)}
+                <Button type="submit">Skapa</Button>
             </form>
-{/* 
-            {response && (
-                <>
-                <p>Customer {response.name} created!</p>
-                </>
-            )} */}
             
         </div>
     )

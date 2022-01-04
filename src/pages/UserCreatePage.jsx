@@ -7,10 +7,10 @@ export default function UserCreatePage() {
     return (
         <div>
             <Container col={3}>
-            <p>myCUSTOMERS</p>
+                    <p>myCUSTOMERS</p>
                 <Content>
-            <UserCreate />
-            </Content>
+                    <UserCreate />
+                </Content>
             </Container>
         </div>
     )

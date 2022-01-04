@@ -8,12 +8,9 @@ import Container from './Container'
 import Content from './Content'
 import DeleteButton from './MyButton' 
 
-
 export default function CustomerList() {
 
-
     const {customerList, setCustomerList} = useContext(UserContext)
-
     const navigate = useNavigate()
 
     useEffect(() => {
@@ -47,48 +44,36 @@ export default function CustomerList() {
             method: "DELETE"
         })
         .then((res) => fetchData())
-        
     }
 
 
     return (
         <div>
+            <Container col={4}>    
+                <Content>
+                <Create onSuccess={fetchData} />            
+                <br />
+                <br />
+                <h1>Dina kunder</h1>
 
-            
-
-            <Container col={3}>    
-            <Content>
-            <Create onSuccess={fetchData} />
-                      
-            <br />
-            <br />
-              <h1>Dina kunder</h1>
-
-              {customerList && customerList.map((customer) => {
-                return (
-                    <>
-            
-                    <CompanyCard>
-                     <h2>{customer.name}</h2>
-                     <ul>
-                         <li>Tel.nr: {customer.phoneNumber}</li>
-                         <li>E-post: {customer.email}</li>
-                         <li>VAT-nr: {customer.vatNr}</li>
-                         <li><Link to={`/customer/${customer.id}`}>Mer info</Link></li>
-                     </ul>
-                        <DeleteButton delete onClick={(e) => handleOnDelete(customer.id)}>Radera kund</DeleteButton>
-                    </CompanyCard>
-             
-                    </>
-                
-                )
-                    
-            })}
-
-            </Content>
+                {customerList && customerList.map((customer) => {
+                    return (
+                        <>
+                        <CompanyCard>
+                        <h2>{customer.name}</h2>
+                        <ul>
+                            <li>Tel.nr: {customer.phoneNumber}</li>
+                            <li>E-post: {customer.email}</li>
+                            <li>VAT-nr: {customer.vatNr}</li>
+                            <li><Link to={`/customer/${customer.id}`}>Mer info</Link></li>
+                        </ul>
+                            <DeleteButton delete onClick={(e) => handleOnDelete(customer.id)}>Radera kund</DeleteButton>
+                        </CompanyCard>
+                        </>
+                    )
+                })}
+                </Content>
             </Container>  
-
         </div> 
-
-    )
+        )
 }

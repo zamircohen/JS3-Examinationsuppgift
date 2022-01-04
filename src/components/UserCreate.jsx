@@ -34,14 +34,13 @@ export default function UserCreate() {
         })
         .then(res => res.json())
         .then(data => setResponse(data))
-        // navigate('/user/activate')
     }
 
 
     return (
         <div>
          
-              <h2>Skapa nytt konto</h2>
+            <h2>Skapa nytt konto</h2>
          
             <form onSubmit={handleOnSubmit}>
                 <input type="text" value={firstName} placeholder="Förnamn" onChange={e => setFirstName(e.target.value)} />

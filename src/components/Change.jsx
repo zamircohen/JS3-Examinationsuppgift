@@ -15,9 +15,7 @@ export default function Change(props) {
     const [email, setEmail] = useState("")
     const [phoneNumber, setPhoneNumber] = useState("")
 
-    const [response, setResponse] = useState(null)
-
-    const [customerDetail, setCustomerDetail] = useState({})
+    // const [customerDetail, setCustomerDetail] = useState({})
 
 
     function renderInput(type, value, placeholder, setValue) {
@@ -47,7 +45,6 @@ export default function Change(props) {
     }
 
 
-
     function handleOnSubmit(e) {
         e.preventDefault()
         const url = `https://frebi.willandskill.eu/api/v1/customers/${params.id}/`
@@ -62,7 +59,6 @@ export default function Change(props) {
             email,
             phoneNumber
         }
-
         
         fetch(url, {
             method: "PATCH",
@@ -74,7 +70,6 @@ export default function Change(props) {
         })
         .then(res => res.json())
         .then(data => props.onSuccess())
-        // .then(data => setResponse(data))
         
         setName("")
         setOrganisationNr("")
@@ -84,11 +79,7 @@ export default function Change(props) {
         setWebsite("")
         setEmail("")
         setPhoneNumber("")
-        // .then(data => setResponse(data))
     }
-
-
-
 
 
     return (
@@ -97,23 +88,17 @@ export default function Change(props) {
             <h1>Ändra kund information</h1>
             
             <form onSubmit={handleOnSubmit}>
-            {renderInput("text", name, "Namn", setName)}
-            {renderInput("text", organisationNr, "Organisationsnummer", setOrganisationNr)}
-            {renderVatInput("text", vatNr, "SE[0-9]{10}", "VAT-nummer", setVatNr)}
-            {renderInput("text", reference, "Referens nummer", setReference)}
-            {renderInput("text", paymentTerm, "Betalningsvillkor i dagar", setPaymentTerm)}
-            {renderInput("url", website, "Webbplats", setWebsite)}
-            {renderInput("email", email, "E-post", setEmail)}
-            {renderInput("tel", phoneNumber, "Telefonnummer", setPhoneNumber)}
-            <Button type="submit">Ändra</Button>
+                {renderInput("text", name, "Namn", setName)}
+                {renderInput("text", organisationNr, "Organisationsnummer", setOrganisationNr)}
+                {renderVatInput("text", vatNr, "SE[0-9]{10}", "VAT-nummer", setVatNr)}
+                {renderInput("text", reference, "Referens nummer", setReference)}
+                {renderInput("text", paymentTerm, "Betalningsvillkor i dagar", setPaymentTerm)}
+                {renderInput("url", website, "Webbplats", setWebsite)}
+                {renderInput("email", email, "E-post", setEmail)}
+                {renderInput("tel", phoneNumber, "Telefonnummer", setPhoneNumber)}
+                <Button type="submit">Ändra</Button>
             </form>
 
-            {response && (
-                <>
-                <p>Kund information har ändrats!</p>
-                </>
-            )} 
-            
         </div>
     )
 }
