@@ -1,15 +1,18 @@
-import React, {useState, useEffect} from 'react'
+import React, {useContext, useState, useEffect} from 'react'
 import {Link} from "react-router-dom"
 import { useNavigate } from 'react-router-dom'
+import { UserContext } from '../App'
 import Create from '../components/Create'
 import Card from './Card'
 import Columns from './Columns'
-import Container from './Container'
 import DeleteButton from './MyButton' 
+
+
 
 export default function CustomerList() {
 
-    const [customerList, setCustomerList] = useState(null)
+
+    const {customerList, setCustomerList} = useContext(UserContext)
 
     const navigate = useNavigate()
 
@@ -44,12 +47,14 @@ export default function CustomerList() {
             method: "DELETE"
         })
         .then((res) => fetchData())
-        // navigate('/home')
+        
     }
 
 
     return (
         <div>
+
+            
 
             <Columns col={3} mar={"left"}>       
             <Create onSuccess={fetchData} />
@@ -57,6 +62,7 @@ export default function CustomerList() {
 
             <Columns col={3} mar={"auto"}>       
               <h1>YOUR CUSTOMERS</h1>
+
 
               {customerList && customerList.map((customer) => {
                 return (

@@ -2,10 +2,14 @@ import React, {useState, useEffect} from 'react'
 import {useParams} from "react-router-dom"
 import { useNavigate } from 'react-router-dom'
 import Change from './Change'
+import Container from './Container'
+import Content from './Content'
 import Button from './MyButton'
+import UserInformation from './UserInformation'
 
 export default function Detail() {
 
+  
     let params = useParams()
 
     const [customerDetail, setCustomerDetail] = useState({})
@@ -42,21 +46,30 @@ export default function Detail() {
 
     return (
         <div>
+
+            <UserInformation />
+
+            <Container col={3}>
+            <Content>
             {customerDetail ? (
                 <>
-                    <p>Name: {customerDetail.name}</p>
-                    <p>Email: {customerDetail.email}</p>
-                    <p>Phone Number: {customerDetail.phoneNumber}</p>        
-                    <p>Organisation Number: {customerDetail.organisationNr}</p>
-                    <p>VAT Number: {customerDetail.vatNr}</p>
-                    <p>Reference Number: {customerDetail.reference}</p>
-                    <p>Payment Term: {customerDetail.paymentTerm} days</p>
-                    <p>Website: {customerDetail.website}</p>
-                    <Button onClick={handleOnClick}>BACK</Button>
+                    <br />
+                    <h2>CUSTOMER DETAILS</h2>
+                    <p><b>Name:</b> {customerDetail.name}</p>
+                    <p><b>Email:</b> {customerDetail.email}</p>
+                    <p><b>Phone Number:</b> {customerDetail.phoneNumber}</p>        
+                    <p><b>Organisation Number:</b> {customerDetail.organisationNr}</p>
+                    <p><b>VAT Number:</b> {customerDetail.vatNr}</p>
+                    <p><b>Reference Number:</b> {customerDetail.reference}</p>
+                    <p><b>Payment Term:</b> {customerDetail.paymentTerm} days</p>
+                    <p><b>Website:</b> {customerDetail.website}</p>
+                    <Button onClick={handleOnClick}>BACK TO LIST</Button>
                     <br />
                     <Change onSuccess={fetchData} />
                 </>
             ): "Not Found" }
+            </Content>
+            </Container>
         </div>
     )
 }

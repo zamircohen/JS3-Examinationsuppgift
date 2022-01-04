@@ -31,6 +31,9 @@ const Button = styled.button`
 
 const LoginButton = styled(Button)`
     border-radius: 2px;
+    width: 60%;
+    display: block
+    background-color:
 `
 
 
@@ -39,7 +42,7 @@ export default function MyButton(props) {
     return (
         <div>
             <>
-            {props.delete ? 
+            {props.login ? 
                 <LoginButton {...props}>{props.children}</LoginButton>
                 : <Button {...props}>{props.children}</Button>
             }

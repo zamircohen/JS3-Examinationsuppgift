@@ -1,8 +1,9 @@
-import React, {useState} from 'react'
-import { useNavigate } from 'react-router-dom'
+import React, {useState, useEffect} from 'react'
+import { useNavigate, useLocation } from 'react-router-dom'
 import Container from '../components/Container'
 import LoginButton from '../components/MyButton'
 import Content from '../components/Content'
+
 
 export default function LoginPage() {
 
@@ -33,6 +34,35 @@ export default function LoginPage() {
 
 
 
+
+
+    const navigate2 = useNavigate()
+    const location = useLocation()
+
+
+    useEffect(() => {
+        const params = new URLSearchParams(location.search)
+        const uid = params.get("uid")
+        const token = params.get("token")
+        const url = "https://frebi.willandskill.eu/auth/users/activate/"
+
+        const payload = {uid, token}
+
+        fetch(url,  {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(payload)
+        })
+        .then(res => res.json())
+        .then(data => console.log(data))
+        navigate2('/login')
+        
+    },[])
+
+
+
     return (
         <div>
             
@@ -50,7 +80,7 @@ export default function LoginPage() {
                 <input type="password" value={password} placeholder="Password" onChange={e => setPassword(e.target.value)} />
                 <br />
                 <br />
-                <LoginButton type="submit">Login</LoginButton>
+                <LoginButton login type="submit">Login</LoginButton>
                 <br />
             </form>
             

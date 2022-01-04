@@ -11,7 +11,6 @@ export default function UserCreate() {
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
     const [organisationKind, setOrganisationKind] = useState("")
-    const [organisationName, setOrganisationName] = useState("")
 
     const [response, setResponse] = useState(null)
 
@@ -19,16 +18,16 @@ export default function UserCreate() {
 
     function handleOnSubmit(e) { 
         e.preventDefault()
+        const url = "https://frebi.willandskill.eu/auth/users/"
         const payload = {
             firstName,
             lastName,
             email,
             password,
-            organisationName,
             organisationKind
         }
-        const url = "https://frebi.willandskill.eu/auth/users/"
-        // const token = localStorage.getItem("webb21-exuppgift")
+        
+        // const token = localStorage.getItem("webb21-exuppgift2")
         fetch(url, {
             method: "POST",
             headers: {
@@ -39,7 +38,7 @@ export default function UserCreate() {
         })
         .then(res => res.json())
         .then(data => setResponse(data))
-        navigate('/login')
+        navigate('/user/activate')
     }
 
 
@@ -53,11 +52,10 @@ export default function UserCreate() {
                 <input type="text" value={lastName} placeholder="Lastname" onChange={e => setLastName(e.target.value)} />
                 <input type="text" value={email} placeholder="Email" onChange={e => setEmail(e.target.value)} />
                 <input type="password" value={password} placeholder="Password" onChange={e => setPassword(e.target.value)} />
-                <input type="text" value={organisationKind} placeholder="WEBB21" onChange={e => setOrganisationKind(e.target.value)} />
-                <input type="text" value={organisationName} placeholder="0" onChange={e => setOrganisationName(e.target.value)} />
+                <input type="text" value={organisationKind} placeholder="Organisation" onChange={e => setOrganisationKind(e.target.value)} />
                 <br />
                 <br />
-                <Button type="submit">Create</Button>
+                <Button login type="submit">Create</Button>
             </form>
          
         </div>
